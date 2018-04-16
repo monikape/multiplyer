@@ -18,11 +18,10 @@ public class CaesarCipher implements Cipher {
         }
 
 
-
-
-
         return stringBuilder.toString();
     }
+
+
 
     @Override
     public String decrypt(String input) {
