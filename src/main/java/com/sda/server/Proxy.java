@@ -16,18 +16,9 @@ public class Proxy implements Runnable{
         this.writeBuff = writeBuff;
     }
 
+
     @Override
     public void run() {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-            String next;
-            while ((next = bufferedReader.readLine()) != null) {
-
-                OutputStream outputStream = clientSocket.getOutputStream();
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
