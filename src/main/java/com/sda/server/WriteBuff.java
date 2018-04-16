@@ -1,8 +1,9 @@
 package com.sda.server;
 
-import java.io.BufferedReader;
+import com.sda.encryption.CaesarCipher;
+import com.sda.encryption.Cipher;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
@@ -11,10 +12,12 @@ public class WriteBuff implements Runnable {
 
 
     private Socket clientSocket;
+    private Cipher cipher;
 
 
     public WriteBuff(Socket clientSocket) {
         this.clientSocket = clientSocket;
+        cipher = new CaesarCipher(3);
     }
 
     @Override
@@ -26,7 +29,8 @@ public class WriteBuff implements Runnable {
 
                 System.out.println("Podaj wiadomość: ");
                 String nextLine = sc.nextLine();
-                printWriter.println(nextLine);
+                String encrypt = cipher.encrypt(nextLine);
+                printWriter.println(encrypt);
                 printWriter.flush();
 
             }
