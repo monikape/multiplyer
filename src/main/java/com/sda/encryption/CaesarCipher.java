@@ -17,6 +17,10 @@ public class CaesarCipher implements Cipher {
             stringBuilder.append((char) next);
         }
 
+
+
+
+
         return stringBuilder.toString();
     }
 
